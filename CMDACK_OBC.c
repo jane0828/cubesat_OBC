@@ -11,30 +11,54 @@ int receive_ack(int sock) {
         if ((ack.can_id & 0x7FF) != FROM_CAM_ID) continue;
 
         // ACK인지 아닌지 구분
-        if (ack.can_id & FLAG_ACK) {
+        if (ack.can_id) {
             if (ack.can_dlc == 2) {
                 switch (ack.data[0]) {
                     case CMDPIC_ID:
-                        printf("CMDPIC 전송 성공!\n");
+                        if (ack.data[1] == 0x01) return 1;
+                        else if (ack.data[1] == 0x02) return 2;
+                        else if (ack.data[1] == 0x03) return 3;
+                        else if (ack.data[1] == 0x04) return 4;
+                        else return 0;    
+
                         break;
+
+                        
                     case CMDVID_ID:
-                        printf("CMDVID 전송 성공!\n");
+                        if (ack.data[1] == 0x01) return 1;
+                        else if (ack.data[1] == 0x02) return 2;
+                        else return 0;
+
                         break;
+
+
                     case CMDRESET_ID:
-                        printf("CMDRESET 전송 성공!\n");
+                        if (ack.data[1] == 0x01) return 1;
+                        else if (ack.data[1] == 0x02) return 2;
+                        else return 0;
+                         
                         break;
+
+
                     case CMDECHO_ID:
-                        printf("CMDECHO 전송 성공!\n");
+                        if (ack.data[1] == 0x01) return 1;
+                        else if (ack.data[1] == 0x02) return 2;
+                        else return 0;
+                         
                         break;
+
+
                     default:
-                        printf("알 수 없는 ACK 수신: 0x%02X\n", ack.data[0]);
+                        return 0;
                         break;
                 }
             }
+
         } else {
             // ACK가 아닌 일반 메시지 처리
             printf("ECHO 수신됨: can_id=0x%03X, dlc=%d\n",
                    ack.can_id, ack.can_dlc);
+            return 0;
             // 필요하면 여기에 일반 명령 처리 로직 추가
         }
     }

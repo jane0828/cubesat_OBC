@@ -6,11 +6,11 @@ set(SOURCES
     main.c
     CMDACK_OBC.c
     CMDECHO_OBC.c
-    CMDHEL_OBC.c
     CMDPIC_OBC.c
     CMDRESET_OBC.c
     CMDVID_OBC.c
     functions.c
+    ACKCHECK_OBC.c
 )
 
 # 실행 파일 생성

@@ -14,21 +14,6 @@ int main() {
             case 0:
                 printf("종료합니다.\n");
                 return 0;
-            case 1:
-                uint8_t lens_pos, denoise;
-
-                printf("카메라 렌즈 위치를 설정하시오.\n");
-                printf("위치 [mm]: ");
-                scanf("%hhu", &lens_pos);
-
-                printf("카메라 노이즈 설정하시오. Noise reduction filter 설정, 0x00 : auto (기본값), 0x01 : cdn_off, 0x02 : cdn_fast, 0x03 : cdn_hq ");
-                scanf("%u", &denoise);
-
-                uint8_t cmd[6];
-                build_hel_command(cmd, lens_pos, denoise);
-                send_hel_command(s, cmd);
-                
-                break;
 
             case 2: 
                 uint8_t delay, resolution, mode;
@@ -54,7 +39,9 @@ int main() {
                 uint8_t cmd_cam[8];
                 build_camera_command(cmd_cam, delay, shutter, resolution, mode, ev);
                 send_camera_command(s, cmd_cam);
+                check_ack();
                 receive_image(s);
+                check_ack();
                 break;
             
 
@@ -84,6 +71,7 @@ int main() {
             case 5:
                 send_echo(s);
                 receive_ack(s);
+                check_ack();
                 break;
 
             case 6:
