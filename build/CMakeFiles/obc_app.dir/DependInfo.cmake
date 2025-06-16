@@ -8,13 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/doteam/Desktop/Camera_team/CMDACK_OBC.c" "CMakeFiles/obc_app.dir/CMDACK_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDACK_OBC.c.o.d"
-  "/home/doteam/Desktop/Camera_team/CMDECHO_OBC.c" "CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o.d"
-  "/home/doteam/Desktop/Camera_team/CMDHEL_OBC.c" "CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o.d"
-  "/home/doteam/Desktop/Camera_team/CMDPIC_OBC.c" "CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o.d"
-  "/home/doteam/Desktop/Camera_team/CMDRESET_OBC.c" "CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o.d"
-  "/home/doteam/Desktop/Camera_team/CMDVID_OBC.c" "CMakeFiles/obc_app.dir/CMDVID_OBC.c.o" "gcc" "CMakeFiles/obc_app.dir/CMDVID_OBC.c.o.d"
+  "/home/doteam/Desktop/Camera_team/camsrc.c" "CMakeFiles/obc_app.dir/camsrc.c.o" "gcc" "CMakeFiles/obc_app.dir/camsrc.c.o.d"
   "/home/doteam/Desktop/Camera_team/functions.c" "CMakeFiles/obc_app.dir/functions.c.o" "gcc" "CMakeFiles/obc_app.dir/functions.c.o.d"
+  "/home/doteam/Desktop/Camera_team/ledsrc.c" "CMakeFiles/obc_app.dir/ledsrc.c.o" "gcc" "CMakeFiles/obc_app.dir/ledsrc.c.o.d"
   "/home/doteam/Desktop/Camera_team/main.c" "CMakeFiles/obc_app.dir/main.c.o" "gcc" "CMakeFiles/obc_app.dir/main.c.o.d"
   )
 

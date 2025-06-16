@@ -38,13 +38,13 @@
 #define CMDVID_ID       0x033
 #define CMDRESET_ID     0x034
 #define CMDECHO_ID      0x036
-#define CMDRSV_ID       0x039
 #define CMDTMSR_ID      0x037
 #define CMDTMLR_ID      0x038
-#define CMDRSV_ID       0x039
+#define CMDRSVPIC_ID    0x039
 #define CMDLEDPWR_ID    0x050
 #define CMD_TMLIGNT_ID  0x051
 #define CMD_TMTEMP_ID   0x052
+#define CMD_LEDECHO_ID  0x055
 
 #define FLAG_PIC        0x001
 #define FLAG_VID        0x002

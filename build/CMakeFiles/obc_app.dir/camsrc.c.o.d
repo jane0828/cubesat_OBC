@@ -1,5 +1,5 @@
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.o: \
- /home/doteam/Desktop/Camera_team/CMDVID_OBC.c /usr/include/stdc-predef.h \
+CMakeFiles/obc_app.dir/camsrc.c.o: \
+ /home/doteam/Desktop/Camera_team/camsrc.c /usr/include/stdc-predef.h \
  /home/doteam/Desktop/Camera_team/common.h /usr/include/stdio.h \
  /usr/include/aarch64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

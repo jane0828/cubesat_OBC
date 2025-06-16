@@ -129,149 +129,29 @@ obc_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/build
 .PHONY : obc_app/fast
 
-CMDACK_OBC.o: CMDACK_OBC.c.o
-.PHONY : CMDACK_OBC.o
+camsrc.o: camsrc.c.o
+.PHONY : camsrc.o
 
 # target to build an object file
-CMDACK_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDACK_OBC.c.o
-.PHONY : CMDACK_OBC.c.o
+camsrc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/camsrc.c.o
+.PHONY : camsrc.c.o
 
-CMDACK_OBC.i: CMDACK_OBC.c.i
-.PHONY : CMDACK_OBC.i
-
-# target to preprocess a source file
-CMDACK_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDACK_OBC.c.i
-.PHONY : CMDACK_OBC.c.i
-
-CMDACK_OBC.s: CMDACK_OBC.c.s
-.PHONY : CMDACK_OBC.s
-
-# target to generate assembly for a file
-CMDACK_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDACK_OBC.c.s
-.PHONY : CMDACK_OBC.c.s
-
-CMDECHO_OBC.o: CMDECHO_OBC.c.o
-.PHONY : CMDECHO_OBC.o
-
-# target to build an object file
-CMDECHO_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o
-.PHONY : CMDECHO_OBC.c.o
-
-CMDECHO_OBC.i: CMDECHO_OBC.c.i
-.PHONY : CMDECHO_OBC.i
+camsrc.i: camsrc.c.i
+.PHONY : camsrc.i
 
 # target to preprocess a source file
-CMDECHO_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDECHO_OBC.c.i
-.PHONY : CMDECHO_OBC.c.i
+camsrc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/camsrc.c.i
+.PHONY : camsrc.c.i
 
-CMDECHO_OBC.s: CMDECHO_OBC.c.s
-.PHONY : CMDECHO_OBC.s
-
-# target to generate assembly for a file
-CMDECHO_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDECHO_OBC.c.s
-.PHONY : CMDECHO_OBC.c.s
-
-CMDHEL_OBC.o: CMDHEL_OBC.c.o
-.PHONY : CMDHEL_OBC.o
-
-# target to build an object file
-CMDHEL_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o
-.PHONY : CMDHEL_OBC.c.o
-
-CMDHEL_OBC.i: CMDHEL_OBC.c.i
-.PHONY : CMDHEL_OBC.i
-
-# target to preprocess a source file
-CMDHEL_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDHEL_OBC.c.i
-.PHONY : CMDHEL_OBC.c.i
-
-CMDHEL_OBC.s: CMDHEL_OBC.c.s
-.PHONY : CMDHEL_OBC.s
+camsrc.s: camsrc.c.s
+.PHONY : camsrc.s
 
 # target to generate assembly for a file
-CMDHEL_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDHEL_OBC.c.s
-.PHONY : CMDHEL_OBC.c.s
-
-CMDPIC_OBC.o: CMDPIC_OBC.c.o
-.PHONY : CMDPIC_OBC.o
-
-# target to build an object file
-CMDPIC_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o
-.PHONY : CMDPIC_OBC.c.o
-
-CMDPIC_OBC.i: CMDPIC_OBC.c.i
-.PHONY : CMDPIC_OBC.i
-
-# target to preprocess a source file
-CMDPIC_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDPIC_OBC.c.i
-.PHONY : CMDPIC_OBC.c.i
-
-CMDPIC_OBC.s: CMDPIC_OBC.c.s
-.PHONY : CMDPIC_OBC.s
-
-# target to generate assembly for a file
-CMDPIC_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDPIC_OBC.c.s
-.PHONY : CMDPIC_OBC.c.s
-
-CMDRESET_OBC.o: CMDRESET_OBC.c.o
-.PHONY : CMDRESET_OBC.o
-
-# target to build an object file
-CMDRESET_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o
-.PHONY : CMDRESET_OBC.c.o
-
-CMDRESET_OBC.i: CMDRESET_OBC.c.i
-.PHONY : CMDRESET_OBC.i
-
-# target to preprocess a source file
-CMDRESET_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDRESET_OBC.c.i
-.PHONY : CMDRESET_OBC.c.i
-
-CMDRESET_OBC.s: CMDRESET_OBC.c.s
-.PHONY : CMDRESET_OBC.s
-
-# target to generate assembly for a file
-CMDRESET_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDRESET_OBC.c.s
-.PHONY : CMDRESET_OBC.c.s
-
-CMDVID_OBC.o: CMDVID_OBC.c.o
-.PHONY : CMDVID_OBC.o
-
-# target to build an object file
-CMDVID_OBC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDVID_OBC.c.o
-.PHONY : CMDVID_OBC.c.o
-
-CMDVID_OBC.i: CMDVID_OBC.c.i
-.PHONY : CMDVID_OBC.i
-
-# target to preprocess a source file
-CMDVID_OBC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDVID_OBC.c.i
-.PHONY : CMDVID_OBC.c.i
-
-CMDVID_OBC.s: CMDVID_OBC.c.s
-.PHONY : CMDVID_OBC.s
-
-# target to generate assembly for a file
-CMDVID_OBC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/CMDVID_OBC.c.s
-.PHONY : CMDVID_OBC.c.s
+camsrc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/camsrc.c.s
+.PHONY : camsrc.c.s
 
 functions.o: functions.c.o
 .PHONY : functions.o
@@ -296,6 +176,30 @@ functions.s: functions.c.s
 functions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/functions.c.s
 .PHONY : functions.c.s
+
+ledsrc.o: ledsrc.c.o
+.PHONY : ledsrc.o
+
+# target to build an object file
+ledsrc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/ledsrc.c.o
+.PHONY : ledsrc.c.o
+
+ledsrc.i: ledsrc.c.i
+.PHONY : ledsrc.i
+
+# target to preprocess a source file
+ledsrc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/ledsrc.c.i
+.PHONY : ledsrc.c.i
+
+ledsrc.s: ledsrc.c.s
+.PHONY : ledsrc.s
+
+# target to generate assembly for a file
+ledsrc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obc_app.dir/build.make CMakeFiles/obc_app.dir/ledsrc.c.s
+.PHONY : ledsrc.c.s
 
 main.o: main.c.o
 .PHONY : main.o
@@ -330,27 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... obc_app"
-	@echo "... CMDACK_OBC.o"
-	@echo "... CMDACK_OBC.i"
-	@echo "... CMDACK_OBC.s"
-	@echo "... CMDECHO_OBC.o"
-	@echo "... CMDECHO_OBC.i"
-	@echo "... CMDECHO_OBC.s"
-	@echo "... CMDHEL_OBC.o"
-	@echo "... CMDHEL_OBC.i"
-	@echo "... CMDHEL_OBC.s"
-	@echo "... CMDPIC_OBC.o"
-	@echo "... CMDPIC_OBC.i"
-	@echo "... CMDPIC_OBC.s"
-	@echo "... CMDRESET_OBC.o"
-	@echo "... CMDRESET_OBC.i"
-	@echo "... CMDRESET_OBC.s"
-	@echo "... CMDVID_OBC.o"
-	@echo "... CMDVID_OBC.i"
-	@echo "... CMDVID_OBC.s"
+	@echo "... camsrc.o"
+	@echo "... camsrc.i"
+	@echo "... camsrc.s"
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"
+	@echo "... ledsrc.o"
+	@echo "... ledsrc.i"
+	@echo "... ledsrc.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

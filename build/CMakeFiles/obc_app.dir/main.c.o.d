@@ -89,4 +89,6 @@ CMakeFiles/obc_app.dir/main.c.o: /home/doteam/Desktop/Camera_team/main.c \
  /usr/include/aarch64-linux-gnu/bits/ioctl-types.h \
  /usr/include/aarch64-linux-gnu/sys/ttydefaults.h \
  /usr/include/aarch64-linux-gnu/sys/time.h \
- /home/doteam/Desktop/Camera_team/functions.h
+ /home/doteam/Desktop/Camera_team/functions.h \
+ /home/doteam/Desktop/Camera_team/camsrc.h \
+ /home/doteam/Desktop/Camera_team/ledsrc.h

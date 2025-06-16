@@ -2,7 +2,7 @@
 #include "functions.h"
 
 
-int send_led_pwr(int sock, int sock, const uint8_t data[8]) {
+int send_led_pwr(int sock, const uint8_t data[8]) {
     struct can_frame LEDPWR;
     LEDPWR.can_id = CMDLEDPWR_ID;
     LEDPWR.can_dlc = 1;

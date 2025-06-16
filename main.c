@@ -1,5 +1,8 @@
 #include "common.h"
 #include "functions.h"
+#include "camsrc.h"
+#include "ledsrc.h"
+#include <time.h>
 
 int main() {
     int s = setup_can_socket("can0");
@@ -14,7 +17,7 @@ int main() {
             case 0:
                 printf("종료합니다.\n");
                 return 0;
-            case 1:
+            case 1: //CMDHEL
                 uint8_t lens_pos, denoise;
 
                 printf("카메라 렌즈 위치를 설정하시오.\n");
@@ -30,7 +33,7 @@ int main() {
                 
                 break;
 
-            case 2: 
+            case 2:  //CMDPIC & CMDSEND
                 uint8_t delay, resolution, mode;
                 uint32_t shutter;
                 int8_t ev;
@@ -54,11 +57,13 @@ int main() {
                 uint8_t cmd_cam[8];
                 build_camera_command(cmd_cam, delay, shutter, resolution, mode, ev);
                 send_camera_command(s, cmd_cam);
+		        receive_ack(s);
                 receive_image(s);
+		        receive_ack(s);
                 break;
             
 
-            case 3:
+            case 3: //CMDVID & CMDSEND
                 uint32_t delay_ms;
                 uint8_t fps;
 
@@ -76,18 +81,88 @@ int main() {
                 break;
 
 
-            // case 4:
-            //     send_reboot_command(s);
-            //     receive_ack(s);
-            //     break;
+            case 4: //CMDRESET
+                send_reboot_command(s);
+                receive_ack(s);
+                break;
 
-            case 5:
+            case 5: //CMDECHO
                 send_echo(s);
                 receive_ack(s);
                 break;
 
-            case 6:
-                
+            case 6: //TMSR
+                send_tmsr(s);
+                receive_ack(s);
+                break;
+            case 7: //TMLR
+                send_tmlr(s);
+                receive_ack(s);
+                break;
+            case 8: //CMDRSVPIC
+            {
+                uint32_t unixtime;
+                printf("UNIX TIME 입력.\n");
+                scanf("%u", &unixtime);
+
+                // 현재 시간 (Unix timestamp: 초 단위)
+                time_t unix_time = time(NULL);
+                if (unix_time == ((time_t)-1)) {
+                    perror("time error");
+                    return 1;
+                }
+
+                // Unix timestamp 출력
+                printf("Current Unix time: %ld\n", unix_time);
+
+                // struct tm 포인터로 변환
+                struct tm *local_time = localtime(&unix_time);
+                if (local_time == NULL) {
+                    perror("localtime error");
+                    return 1;
+                }
+
+                // 문자열로 포맷팅
+                char buffer[100];
+                if (strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", local_time)) {
+                    printf("Local time: %s\n", buffer);
+                } else {
+                    printf("strftime error\n");
+                }
+
+                uint8_t unixtimebuffer[8] = {0};
+                // big-endian으로 저장 (상위 바이트부터)
+                unixtimebuffer[0] = (unixtime >> 24) & 0xFF;  // MSB
+                unixtimebuffer[1] = (unixtime >> 16) & 0xFF;
+                unixtimebuffer[2] = (unixtime >> 8)  & 0xFF;
+                unixtimebuffer[3] = (unixtime)       & 0xFF;  // LSB
+
+                send_rsvpic(s, unixtimebuffer);
+                receive_ack(s);
+
+            }
+                break;
+            case 9: //CMDLEDPWR
+                uint8_t onoff;
+                uint8_t cmd_led[8];
+                printf("LED 전체 ON/OFF 제어");
+                printf("ON: 1, OFF: 0 \n");
+                scanf("%hhu", &onoff);
+                cmd_led[0] = onoff;
+                send_led_pwr(s, cmd_led);
+                receive_ack(s);
+                break;
+            case 10: //TMLIGHT
+                send_tmlight(s);
+                receive_ack(s);
+                break;
+            case 11: //TMTEMP
+                send_tmtemp(s);
+                receive_ack(s);
+                break;
+            case 12: //LEDECHO
+                send_led_echo(s);
+                receive_ack(s);
                 break;
 
             default:

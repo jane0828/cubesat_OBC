@@ -8,6 +8,13 @@ void print_menu() {
     printf("3: CMDVID(카메라 비디오 촬영 및 전송 명령)\n");
     printf("4: CMDRESET(제로 재부팅 명령)\n");
     printf("5: CMDECHO(카메라 에코)\n");
+    printf("6: TMSR(간단한 카메라 상태 TM 요청)\n");
+    printf("7: TMLR(카메라 전체 상태 TM 요청)\n");
+    printf("8: CMDRSVPIC(카메라 사진촬영 예약 명령)\n");
+    printf("9: CMDLEDPWR(LED ON/OFF 명령)\n");
+    printf("10: TMLIGNT(광 센서값 요청청)\n");
+    printf("11: TMTEMT(온도 센서 값 요청)\n");
+    printf("12: CMDLEDECHO(LED 에코)\n");
     
     printf("입력 > ");
 }

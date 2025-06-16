@@ -1,5 +1,5 @@
-#include "common.h"
-#include "functions.h"
+//#include "common.h"
+//#include "functions.h"
 
 // int receive_ack(int sock) {
 //     struct can_frame ack;
@@ -32,6 +32,7 @@
 // }
 
 
+/*
 int receive_ack(int sock) {
     struct can_frame ack;
 
@@ -70,10 +71,72 @@ int receive_ack(int sock) {
         }
     }
 }
+*/
 
 
-// void *receive_ack_thread(void *arg) {
-//     int sock = *(int *)arg;
-//     receive_ack(sock);
-//     return NULL;
-// }
+#include <stdio.h>
+#include <linux/can.h>
+#include <unistd.h>
+#include "common.h"
+
+int receive_ack(int sock) {
+    struct can_frame frame;
+    int nbytes = read(sock, &frame, sizeof(struct can_frame));
+    
+    if (nbytes < 0) {
+        perror("CAN read failed");
+        return -1;
+    }
+
+    switch (frame.can_id) {
+        case 0x100:  //카메라 TC 응답
+            if (frame.data[0] == CMDHEL_ID) {
+                printf("카메라 설정 성공\n");
+                return 0;
+            } 
+            else if (frame.data[0] == CMDPIC_ID) {
+                printf("사진촬영 명령 성공\n");
+                return 0;
+            } 
+            else if (frame.data[0] == CMDVID_ID) {
+                printf("사진촬영 명령 성공\n");
+                return 0;
+            } 
+            else if (frame.data[0] == CMDRESET_ID) {
+                printf("리셋 명령 성공\n");
+                return 0;
+            } 
+            else if (frame.data[0] == CMDECHO_ID) {
+                printf("에코 성공\n");
+                return 0;
+            }
+            else if (frame.data[0] == CMDRSV_ID) {
+                printf("예약 명령 성공\n");
+                return 0;
+            }
+            break;
+        case 0x200:  //LED TC 응답
+            if (frame.data[0] == CMDLEDPWR_ID) {
+                printf("LED ON/OFF 명령 성공\n");
+                return 0;
+            }
+            else if (frame.data[0] == CMD_LEDECHO_ID) {
+                printf("LED 에코 성공\n");
+                return 0;
+            } 
+            break;
+        case 0x137: //TMSR 응답
+            break;
+        case 0x138: //TMLR 응답
+            break;
+        case 0x251: //TMLIGHT 응답
+            break;
+        case 0x252: //TMTEMP 응답
+            break;
+
+
+        default:
+            printf("⚠️ 알 수 없는 메시지 ID: 0x%X\n", frame.can_id);
+            return -1;
+    }
+}

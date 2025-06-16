@@ -4,12 +4,8 @@ project(OBC_Project C)
 # 소스 파일 리스트
 set(SOURCES
     main.c
-    CMDACK_OBC.c
-    CMDECHO_OBC.c
-    CMDHEL_OBC.c
-    CMDPIC_OBC.c
-    CMDRESET_OBC.c
-    CMDVID_OBC.c
+    camsrc.c
+    ledsrc.c
     functions.c
 )
 

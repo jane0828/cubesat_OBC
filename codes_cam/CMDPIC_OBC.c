@@ -123,3 +123,4 @@ void receive_image(int sock) {
     printf("총 수신 시간: %.2f ms (%.2f 초)\n", elapsed_ms, elapsed_ms / 1000.0);
     free(buffer);
 }
+

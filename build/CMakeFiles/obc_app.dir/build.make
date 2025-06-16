@@ -83,94 +83,38 @@ CMakeFiles/obc_app.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/main.c -o CMakeFiles/obc_app.dir/main.c.s
 
-CMakeFiles/obc_app.dir/CMDACK_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDACK_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDACK_OBC.c
-CMakeFiles/obc_app.dir/CMDACK_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/obc_app.dir/CMDACK_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDACK_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDACK_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDACK_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDACK_OBC.c
+CMakeFiles/obc_app.dir/camsrc.c.o: CMakeFiles/obc_app.dir/flags.make
+CMakeFiles/obc_app.dir/camsrc.c.o: /home/doteam/Desktop/Camera_team/camsrc.c
+CMakeFiles/obc_app.dir/camsrc.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/obc_app.dir/camsrc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/camsrc.c.o -MF CMakeFiles/obc_app.dir/camsrc.c.o.d -o CMakeFiles/obc_app.dir/camsrc.c.o -c /home/doteam/Desktop/Camera_team/camsrc.c
 
-CMakeFiles/obc_app.dir/CMDACK_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDACK_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDACK_OBC.c > CMakeFiles/obc_app.dir/CMDACK_OBC.c.i
+CMakeFiles/obc_app.dir/camsrc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/camsrc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/camsrc.c > CMakeFiles/obc_app.dir/camsrc.c.i
 
-CMakeFiles/obc_app.dir/CMDACK_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDACK_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDACK_OBC.c -o CMakeFiles/obc_app.dir/CMDACK_OBC.c.s
+CMakeFiles/obc_app.dir/camsrc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/camsrc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/camsrc.c -o CMakeFiles/obc_app.dir/camsrc.c.s
 
-CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDECHO_OBC.c
-CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDECHO_OBC.c
+CMakeFiles/obc_app.dir/ledsrc.c.o: CMakeFiles/obc_app.dir/flags.make
+CMakeFiles/obc_app.dir/ledsrc.c.o: /home/doteam/Desktop/Camera_team/ledsrc.c
+CMakeFiles/obc_app.dir/ledsrc.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/obc_app.dir/ledsrc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/ledsrc.c.o -MF CMakeFiles/obc_app.dir/ledsrc.c.o.d -o CMakeFiles/obc_app.dir/ledsrc.c.o -c /home/doteam/Desktop/Camera_team/ledsrc.c
 
-CMakeFiles/obc_app.dir/CMDECHO_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDECHO_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDECHO_OBC.c > CMakeFiles/obc_app.dir/CMDECHO_OBC.c.i
+CMakeFiles/obc_app.dir/ledsrc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/ledsrc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/ledsrc.c > CMakeFiles/obc_app.dir/ledsrc.c.i
 
-CMakeFiles/obc_app.dir/CMDECHO_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDECHO_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDECHO_OBC.c -o CMakeFiles/obc_app.dir/CMDECHO_OBC.c.s
-
-CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDHEL_OBC.c
-CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDHEL_OBC.c
-
-CMakeFiles/obc_app.dir/CMDHEL_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDHEL_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDHEL_OBC.c > CMakeFiles/obc_app.dir/CMDHEL_OBC.c.i
-
-CMakeFiles/obc_app.dir/CMDHEL_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDHEL_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDHEL_OBC.c -o CMakeFiles/obc_app.dir/CMDHEL_OBC.c.s
-
-CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDPIC_OBC.c
-CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDPIC_OBC.c
-
-CMakeFiles/obc_app.dir/CMDPIC_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDPIC_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDPIC_OBC.c > CMakeFiles/obc_app.dir/CMDPIC_OBC.c.i
-
-CMakeFiles/obc_app.dir/CMDPIC_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDPIC_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDPIC_OBC.c -o CMakeFiles/obc_app.dir/CMDPIC_OBC.c.s
-
-CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDRESET_OBC.c
-CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDRESET_OBC.c
-
-CMakeFiles/obc_app.dir/CMDRESET_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDRESET_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDRESET_OBC.c > CMakeFiles/obc_app.dir/CMDRESET_OBC.c.i
-
-CMakeFiles/obc_app.dir/CMDRESET_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDRESET_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDRESET_OBC.c -o CMakeFiles/obc_app.dir/CMDRESET_OBC.c.s
-
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.o: CMakeFiles/obc_app.dir/flags.make
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.o: /home/doteam/Desktop/Camera_team/CMDVID_OBC.c
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/obc_app.dir/CMDVID_OBC.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/CMDVID_OBC.c.o -MF CMakeFiles/obc_app.dir/CMDVID_OBC.c.o.d -o CMakeFiles/obc_app.dir/CMDVID_OBC.c.o -c /home/doteam/Desktop/Camera_team/CMDVID_OBC.c
-
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/obc_app.dir/CMDVID_OBC.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/doteam/Desktop/Camera_team/CMDVID_OBC.c > CMakeFiles/obc_app.dir/CMDVID_OBC.c.i
-
-CMakeFiles/obc_app.dir/CMDVID_OBC.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/CMDVID_OBC.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/CMDVID_OBC.c -o CMakeFiles/obc_app.dir/CMDVID_OBC.c.s
+CMakeFiles/obc_app.dir/ledsrc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/obc_app.dir/ledsrc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/doteam/Desktop/Camera_team/ledsrc.c -o CMakeFiles/obc_app.dir/ledsrc.c.s
 
 CMakeFiles/obc_app.dir/functions.c.o: CMakeFiles/obc_app.dir/flags.make
 CMakeFiles/obc_app.dir/functions.c.o: /home/doteam/Desktop/Camera_team/functions.c
 CMakeFiles/obc_app.dir/functions.c.o: CMakeFiles/obc_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/obc_app.dir/functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/obc_app.dir/functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/obc_app.dir/functions.c.o -MF CMakeFiles/obc_app.dir/functions.c.o.d -o CMakeFiles/obc_app.dir/functions.c.o -c /home/doteam/Desktop/Camera_team/functions.c
 
 CMakeFiles/obc_app.dir/functions.c.i: cmake_force
@@ -184,28 +128,20 @@ CMakeFiles/obc_app.dir/functions.c.s: cmake_force
 # Object files for target obc_app
 obc_app_OBJECTS = \
 "CMakeFiles/obc_app.dir/main.c.o" \
-"CMakeFiles/obc_app.dir/CMDACK_OBC.c.o" \
-"CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o" \
-"CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o" \
-"CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o" \
-"CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o" \
-"CMakeFiles/obc_app.dir/CMDVID_OBC.c.o" \
+"CMakeFiles/obc_app.dir/camsrc.c.o" \
+"CMakeFiles/obc_app.dir/ledsrc.c.o" \
 "CMakeFiles/obc_app.dir/functions.c.o"
 
 # External object files for target obc_app
 obc_app_EXTERNAL_OBJECTS =
 
 obc_app: CMakeFiles/obc_app.dir/main.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDACK_OBC.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDECHO_OBC.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDHEL_OBC.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDPIC_OBC.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDRESET_OBC.c.o
-obc_app: CMakeFiles/obc_app.dir/CMDVID_OBC.c.o
+obc_app: CMakeFiles/obc_app.dir/camsrc.c.o
+obc_app: CMakeFiles/obc_app.dir/ledsrc.c.o
 obc_app: CMakeFiles/obc_app.dir/functions.c.o
 obc_app: CMakeFiles/obc_app.dir/build.make
 obc_app: CMakeFiles/obc_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable obc_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/doteam/Desktop/Camera_team/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable obc_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/obc_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

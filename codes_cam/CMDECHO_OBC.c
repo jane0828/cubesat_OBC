@@ -6,7 +6,7 @@ int send_echo(int sock) {
     struct can_frame echo;
     echo.can_id = CMDECHO_ID;
     echo.can_dlc = 1;
-    echo.data[0] = 135;
+    echo.data[0] = 0x08;
 
     write(sock, &echo, sizeof(echo));
 
