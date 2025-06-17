@@ -18,14 +18,14 @@
 
 
 
-#define CMD_ID     0x200
-#define DATA_ID    0x300
-#define END_ID     0x3FF
-#define NAME_ID    0x3FE
-#define ECHO_ID    0x36
-#define STATUS_ID  0x2FF
-#define CAMERA_CMD_ID 0x106
-#define VIDEO_CMD_ID 0x120
+//#define CMD_ID     0x200
+//#define DATA_ID    0x300
+//#define END_ID     0x3FF
+//#define NAME_ID    0x3FE
+//#define ECHO_ID    0x36
+//#define STATUS_ID  0x2FF
+//#define CAMERA_CMD_ID 0x106
+//#define VIDEO_CMD_ID 0x120
 
 #define END_FRAME_VAL  0xFF
 #define MAX_CAN_DLC    8
@@ -46,10 +46,10 @@
 #define CMD_TMTEMP_ID   0x052
 #define CMD_LEDECHO_ID  0x055
 
-#define FLAG_PIC        0x001
-#define FLAG_VID        0x002
-#define FLAG_ACK        0x004
-#define FLAG_SEND       0x008
+//#define FLAG_PIC        0x001
+//#define FLAG_VID        0x002
+//#define FLAG_ACK        0x004
+//#define FLAG_SEND       0x008
 
 
 

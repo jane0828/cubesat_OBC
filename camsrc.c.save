@@ -3,13 +3,13 @@
 
 
 // CMDACK
-int receive_ack(int sock) {
+void receive_ack(int sock) {
     struct can_frame frame;
 
 
     fd_set read_fds;
     struct timeval timeout;
-    timeout.tv_sec = 5;      // 30초 동안 기다림
+    timeout.tv_sec = 30;      // 30초 동안 기다림
     timeout.tv_usec = 0;
 
     FD_ZERO(&read_fds);
@@ -19,11 +19,11 @@ int receive_ack(int sock) {
 
     if (ret == -1) {
         perror("select() 실패");
-        return -1;
+        return;
     } else if (ret == 0) {
-//      printf("ACK 수신 타임아웃: 응답이 없습니다.\n");
-//  	printf("Recovery Mode 2\n");
-        return 2;
+        printf("ACK 수신 타임아웃: 응답이 없습니다.\n");
+	printf("Recovery Mdoe로 진입합니다...\n");
+        return;
     }
 
 
@@ -31,85 +31,64 @@ int receive_ack(int sock) {
 
     if (nbytes < 0) {
         perror("CAN read failed");
-        return -1;
+        return;
     }
 
     switch (frame.can_id) {
         case 0x100:  //카메라 TC 응답
             if (frame.data[0] == CMDHEL_ID) {
                 printf("카메라 설정 성공\n");
-                return 1;
+                return;
             } 
             
             else if (frame.data[0] == CMDPIC_ID) {
 
                 if (frame.data[1] == 0x01) {
                     printf("ACK 수신, 정상입니다!!!!\n");
-                    return 1;
+                    return;
                 }
                 else if (frame.data[1] == 0x02) {
                     printf("Error code 2 수신\n");
-                    return 2;
+                    return;
                 }
                 else if (frame.data[1] == 0x03) {
                     printf("Error code 3 수신\n");
-                    return 3;
+                    return;
                 }
                 else if (frame.data[1] == 0x04) {
                     printf("Error code 4 수신\n");
-                    return 4;
+                    return;
                 }
-                else return 0;
+                else return;
             } 
             else if (frame.data[0] == CMDVID_ID) {
                 printf("사진촬영 명령 성공\n");
-                return 1;
+                return;
             } 
             else if (frame.data[0] == CMDRESET_ID) {
                 printf("리셋 명령 성공\n");
-                return 1;
+                return;
             } 
             else if (frame.data[0] == CMDECHO_ID) {
                 if (frame.data[1] == 0x87) {
                     printf("에코 성공\n");
-                    return 1;
+                    return;
 		}
-		else return 0;
+		else return;
             }
             else if (frame.data[0] == CMDRSVPIC_ID) {
                 printf("사진촬영 예약 명령 성공\n");
-                return 1;
+                return;
             }
-
-	    else if (frame.data[0] == CMDTMSR_ID) {
-		if (frame.data[1] == 0x01) {
-                    printf("ACK 수신, 정상입니다!!!!\n");
-                    return 1;
-                }
-                else if (frame.data[1] == 0x02) {
-                    printf("Error code 2 수신\n");
-                    return 2;
-                }
-                else if (frame.data[1] == 0x03) {
-                    printf("Error code 3 수신\n");
-                    return 3;
-                }
-                else if (frame.data[1] == 0x04) {
-                    printf("Error code 4 수신\n");
-                    return 4;
-                }
-                else return 0;
-	    }
-
             break;
         case 0x200:  //LED TC 응답
             if (frame.data[0] == CMDLEDPWR_ID) {
                 printf("LED ON/OFF 명령 성공\n");
-                return 1;
+                return;
             }
             else if (frame.data[0] == CMD_LEDECHO_ID) {
                 printf("LED 에코 성공\n");
-                return 1;
+                return;
             } 
             break;
         case 0x137: //TMSR 응답
@@ -251,7 +230,6 @@ void build_camera_command(uint8_t data[8], uint8_t delay_sec, uint32_t shutter_u
     data[6] = exposure_mode;
     data[7] = (uint8_t)exposure_value;
 }
-
 void send_camera_command(int sock, const uint8_t data[8]) {
     struct can_frame cam;
     cam.can_id = CMDPIC_ID;
@@ -264,8 +242,7 @@ void send_camera_command(int sock, const uint8_t data[8]) {
         printf("카메라 명령 전송 완료 (ID=0x%03X)\n", CMDPIC_ID);
     }
 }
-
-int receive_image(int sock) {
+void receive_image(int sock) {
     struct can_frame frame;
     unsigned char *buffer = NULL;
     size_t buffer_size = 0;
@@ -296,13 +273,13 @@ int receive_image(int sock) {
 	    if (frame.data[1] == 0x03) {
 	    	printf("NACK3 수신됨.\n");
 	    	printf("Recovery Mode로 진입합니다...\n");
-	    	return 3;
+	    	return;
 	    }
 
 	    if (frame.data[1] == 0x04) {
 	    	printf("NACK4 수신됨.\n");
 	    	printf("Recovery Mode로 진입합니다...\n");
-	    	return 4;
+	    	return;
 	    }
 
 	}
@@ -313,7 +290,7 @@ int receive_image(int sock) {
             buffer = malloc(buffer_size);
             if (!buffer) {
                 perror("메모리 초기 할당 실패");
-                return 0;
+                return;
             }
             memset(buffer, 0, buffer_size); 
         }
@@ -341,7 +318,7 @@ int receive_image(int sock) {
             if (!new_buf) {
                 perror("메모리 재할당 실패");
                 free(buffer);
-                return 0;
+                return;
             }
 
             buffer = new_buf;
@@ -372,7 +349,6 @@ int receive_image(int sock) {
 
     printf("총 수신 시간: %.2f ms (%.2f 초)\n", elapsed_ms, elapsed_ms / 1000.0);
     free(buffer);
-    return 1;
 }
 
 //CMDECHO
@@ -665,7 +641,7 @@ int send_tmsr(int sock) {
 }
 
 
-int receive_tmsr(int sock) {
+void receive_tmsr(int sock) {
     struct can_frame frame;
     char camera_info[256] = {0};
     int offset = 0;
@@ -680,10 +656,10 @@ int receive_tmsr(int sock) {
                     break;
 		}
 		if (frame.data[1] == 0x03) {
-//		    printf("ERROR CODE 3\n");
-//		    printf("카메라 발견되지 않음.\n");
-//		    printf("Recovery Mode로 진입합니다...\n");
-		    return 3;
+		    printf("ERROR CODE 3\n");
+		    printf("카메라 발견되지 않음.\n");
+		    printf("Recovery Mode로 진입합니다...\n");
+		    return;
                 }
 
                 for (int i = 0; i < frame.can_dlc && offset < sizeof(camera_info) - 1; ++i) {
@@ -695,6 +671,7 @@ int receive_tmsr(int sock) {
 
     camera_info[offset] = '\0';
     printf("\n[수신 완료] 등록된 카메라 정보:\n%s\n", camera_info);
-    return 1;
 }
+
+
 

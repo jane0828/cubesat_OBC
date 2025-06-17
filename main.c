@@ -7,7 +7,8 @@
 int main() {
     int s = setup_can_socket("can0");
     int choice;
-
+    int check;
+    int val;
 
     while (1) {
         print_menu();
@@ -17,21 +18,21 @@ int main() {
             case 0:
                 printf("종료합니다.\n");
                 return 0;
-            case 1: //CMDHEL
-                uint8_t lens_pos, denoise;
+//            case 1: //CMDHEL
+//                uint8_t lens_pos, denoise;
 
-                printf("카메라 렌즈 위치를 설정하시오.\n");
-                printf("위치 [mm]: ");
-                scanf("%hhu", &lens_pos);
+//                printf("카메라 렌즈 위치를 설정하시오.\n");
+//                printf("위치 [mm]: ");
+//                scanf("%hhu", &lens_pos);
+//
+//                printf("카메라 노이즈 설정하시오. Noise reduction filter 설정, 0x00 : auto (기본값), 0x01 : cdn_off, 0x02 : cdn_fast, 0x03 : cdn_hq ");
+//                scanf("%u", &denoise);
 
-                printf("카메라 노이즈 설정하시오. Noise reduction filter 설정, 0x00 : auto (기본값), 0x01 : cdn_off, 0x02 : cdn_fast, 0x03 : cdn_hq ");
-                scanf("%u", &denoise);
-
-                uint8_t cmd[6];
-                build_hel_command(cmd, lens_pos, denoise);
-                send_hel_command(s, cmd);
+//                uint8_t cmd[6];
+//                build_hel_command(cmd, lens_pos, denoise);
+//                send_hel_command(s, cmd);
                 
-                break;
+//                break;
 
             case 2:  //CMDPIC & CMDSEND
                 uint8_t delay, resolution, mode;
@@ -57,11 +58,33 @@ int main() {
                 uint8_t cmd_cam[8];
                 build_camera_command(cmd_cam, delay, shutter, resolution, mode, ev);
                 send_camera_command(s, cmd_cam);
-		        receive_ack(s);
-                receive_image(s);
-		        receive_ack(s);
-                break;
-            
+                check = receive_ack(s);
+                if (check != 1) break;
+		val = receive_image(s);
+		if (val == 1) {
+		    receive_ack(s);
+		    break;
+		}
+
+		else if (val == 2) {
+		    printf("Error Code 2 Received.\n");
+		    printf("Recovery Mode 2 Activated.\n");
+		    break;
+		}
+                else if (val == 3) {
+                    printf("Error Code 3 Received.\n");
+                    printf("Recovery Mode 3 Activated.\n");
+                    break;
+		}
+                else if (val == 4) {
+                    printf("Error Code 4 Received.\n");
+                    printf("Recovery Mode 4 Activated.\n");
+		    break;
+                }
+		else {
+		    printf("...Sorry...\n");
+		    break;
+		}
 
             case 3: //CMDVID & CMDSEND
                 uint32_t delay_ms;
@@ -83,7 +106,9 @@ int main() {
 
             case 4: //CMDRESET
                 send_reboot_command(s);
-                receive_ack(s);
+		check = receive_ack(s);
+		if (check != 1) break;
+                wait_for_echo(s);
                 break;
 
             case 5: //CMDECHO
@@ -93,8 +118,34 @@ int main() {
 
             case 6: //TMSR
                 send_tmsr(s);
-                receive_ack(s);
-                break;
+		check = receive_ack(s);
+		if (check != 1) break;
+		val = receive_tmsr(s);
+                if (val == 1) {
+                    receive_ack(s);
+                    break;
+                }
+
+                else if (val == 2) {
+                    printf("Error Code 2 Received.\n");
+                    printf("Recovery Mode 2 Activated.\n");
+                    break;
+                }
+                else if (val == 3) {
+                    printf("Error Code 3 Received.\n");
+                    printf("Recovery Mode 3 Activated.\n");
+                    break;
+                }
+                else if (val == 4) {
+                    printf("Error Code 4 Received.\n");
+                    printf("Recovery Mode 4 Activated.\n");
+                    break;
+                }
+                else {
+                    printf("...Sorry...\n");
+                    break;
+                }
+
             case 7: //TMLR
                 send_tmlr(s);
                 receive_ack(s);
