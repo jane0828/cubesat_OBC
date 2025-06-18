@@ -1,6 +1,65 @@
 #include "common.h"
 #include "functions.h"
 
+// recovery2(): CAN 통신 끊겼을 때
+void recovery2(int sock) {
+    int i = 0;
+    int check;
+    while (i < 3) {
+        send_echo(sock);
+        check = receive_ack(sock);
+	i++;
+        if (check == 2) printf("%d번째 Echo 돌아오지 않음.\n");
+        else printf("Echo %d번째 송수신 완료\n", i);
+    }
+
+
+
+}
+
+// recovery3(): camera not found
+// flow: 에코 3번 -> tmsr 받음 -> 카메라 없다하면 리부트 -> tmsr 다시 받아서 확인
+void recovery3(int sock) {
+    int i = 0;
+    int check;
+    while (i < 3) {
+        send_echo(sock);
+        check = receive_ack(sock);
+	if (check == 2) break;
+        i++;
+	printf("Echo %d번째 송수신 완료\n", i);
+	if (i == 3) printf("Echo 3번 주고받기 완료. Telemetry 정보를 요청합니다.\n");
+    }
+
+    send_tmsr(sock);
+    check = receive_tmsr(sock);
+
+    if (check == 1) {
+	printf("카메라 연결 정상\n");
+	return;
+    }
+
+    if (check == 3) {
+	printf("카메라 연결 불량 확인됨.\n");
+	printf("5초 뒤 camera zero를 재부팅합니다.\n");
+	sleep(5);
+	send_reboot_command(sock);
+	wait_for_echo(sock);
+	printf("카메라 정보를 재확인합니다.\n");
+	send_tmsr(sock);
+	receive_ack(sock);
+	check = receive_tmsr(sock);
+	if (check == 1) {
+	    printf("카메라 연결이 돌아왔습니다. Recovery 3를 종료합니다.\n");
+	    return;
+	}
+	else {
+	    printf("카메라는 여전히 미아입니다. 미션 실패\n");
+	    return;
+	}
+    }
+}
+
 
 // CMDACK
 int receive_ack(int sock) {
@@ -18,12 +77,12 @@ int receive_ack(int sock) {
     int ret = select(sock + 1, &read_fds, NULL, NULL, &timeout);
 
     if (ret == -1) {
-        perror("select() 실패");
-        return -1;
+          perror("select() 실패");
+          return -1;
     } else if (ret == 0) {
-//      printf("ACK 수신 타임아웃: 응답이 없습니다.\n");
-//  	printf("Recovery Mode 2\n");
-        return 2;
+          printf("ACK 수신 타임아웃: 응답이 없습니다.\n");
+          printf("CAN 통신 라인을 확인하십시오.\n");
+          return 2;
     }
 
 
@@ -432,10 +491,10 @@ void wait_for_echo(int sock) {
     int waited = 0;
 
     printf("재부팅 상태 확인 중 (최대 5분 대기)...\n");
-    printf("제로가 부팅을 마칠 때까지 30초 대기 중...\n");
+    printf("제로가 부팅을 마칠 때까지 40초 대기 중...\n");
 
-    //  최초 30초 대기 (Echo 전송 안 함)
-    while (waited < 30) {
+    //  최초 40초 대기 (Echo 전송 안 함)
+    while (waited < 40) {
         sleep(1);
         waited++;
         if (waited % 5 == 0) {
@@ -443,7 +502,7 @@ void wait_for_echo(int sock) {
             fflush(stdout);
         }
     }
-    printf("\n30초 대기 완료. Echo 요청 시작.\n");
+    printf("\n40초 대기 완료. Echo 요청 시작.\n");
 
     while (waited < total_wait_sec) {
         // 30초 간격으로 Echo 요청 전송

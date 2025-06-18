@@ -59,7 +59,12 @@ int main() {
                 build_camera_command(cmd_cam, delay, shutter, resolution, mode, ev);
                 send_camera_command(s, cmd_cam);
                 check = receive_ack(s);
-                if (check != 1) break;
+                if (check == 2) {
+		    printf("Error Code 2 Received.\n");
+		    printf("Recovery Mode 2 Activated.\n");
+		    recovery2(s);
+                    break;
+                }
 		val = receive_image(s);
 		if (val == 1) {
 		    receive_ack(s);
@@ -69,11 +74,14 @@ int main() {
 		else if (val == 2) {
 		    printf("Error Code 2 Received.\n");
 		    printf("Recovery Mode 2 Activated.\n");
+		    recovery2(s);
 		    break;
 		}
                 else if (val == 3) {
                     printf("Error Code 3 Received.\n");
-                    printf("Recovery Mode 3 Activated.\n");
+                    printf("Recovery Mode 3 Activates in 5secs.\n");
+		    sleep(5);
+		    recovery3(s);
                     break;
 		}
                 else if (val == 4) {
@@ -113,13 +121,24 @@ int main() {
 
             case 5: //CMDECHO
                 send_echo(s);
-                receive_ack(s);
+                check = receive_ack(s);
+                if (check == 2) {
+                    printf("Error Code 2 Received.\n");
+                    printf("Recovery Mode 2 Activated.\n");
+		    recovery2(s);
+                    break;
+                }
                 break;
 
             case 6: //TMSR
                 send_tmsr(s);
 		check = receive_ack(s);
-		if (check != 1) break;
+                if (check == 2) {
+                    printf("Error Code 2 Received.\n");
+                    printf("Recovery Mode 2 Activated.\n");
+		    recovery2(s);
+                    break;
+                }
 		val = receive_tmsr(s);
                 if (val == 1) {
                     receive_ack(s);
@@ -129,11 +148,14 @@ int main() {
                 else if (val == 2) {
                     printf("Error Code 2 Received.\n");
                     printf("Recovery Mode 2 Activated.\n");
+		    recovery2(s);
                     break;
                 }
                 else if (val == 3) {
                     printf("Error Code 3 Received.\n");
-                    printf("Recovery Mode 3 Activated.\n");
+                    printf("Recovery Mode 3 Activates in 5secs.\n");
+		    sleep(5);
+		    recovery3(s);
                     break;
                 }
                 else if (val == 4) {
