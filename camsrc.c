@@ -68,7 +68,7 @@ int receive_ack(int sock) {
 
     fd_set read_fds;
     struct timeval timeout;
-    timeout.tv_sec = 5;      // 30초 동안 기다림
+    timeout.tv_sec = 5;      // 5초 동안 기다림
     timeout.tv_usec = 0;
 
     FD_ZERO(&read_fds);

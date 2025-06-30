@@ -18,22 +18,7 @@ int main() {
             case 0:
                 printf("종료합니다.\n");
                 return 0;
-//            case 1: //CMDHEL
-//                uint8_t lens_pos, denoise;
-
-//                printf("카메라 렌즈 위치를 설정하시오.\n");
-//                printf("위치 [mm]: ");
-//                scanf("%hhu", &lens_pos);
-//
-//                printf("카메라 노이즈 설정하시오. Noise reduction filter 설정, 0x00 : auto (기본값), 0x01 : cdn_off, 0x02 : cdn_fast, 0x03 : cdn_hq ");
-//                scanf("%u", &denoise);
-
-//                uint8_t cmd[6];
-//                build_hel_command(cmd, lens_pos, denoise);
-//                send_hel_command(s, cmd);
                 
-//                break;
-
             case 2:  //CMDPIC & CMDSEND
                 uint8_t delay, resolution, mode;
                 uint32_t shutter;
@@ -168,53 +153,53 @@ int main() {
                     break;
                 }
 
-            case 7: //TMLR
-                send_tmlr(s);
-                receive_ack(s);
-                break;
-            case 8: //CMDRSVPIC
-            {
-                uint32_t unixtime;
-                printf("UNIX TIME 입력.\n");
-                scanf("%u", &unixtime);
+            // case 7: //TMLR
+            //     send_tmlr(s);
+            //     receive_ack(s);
+            //     break;
+            // case 8: //CMDRSVPIC
+            // {
+            //     uint32_t unixtime;
+            //     printf("UNIX TIME 입력.\n");
+            //     scanf("%u", &unixtime);
 
-                // 현재 시간 (Unix timestamp: 초 단위)
-                time_t unix_time = time(NULL);
-                if (unix_time == ((time_t)-1)) {
-                    perror("time error");
-                    return 1;
-                }
+            //     // 현재 시간 (Unix timestamp: 초 단위)
+            //     time_t unix_time = time(NULL);
+            //     if (unix_time == ((time_t)-1)) {
+            //         perror("time error");
+            //         return 1;
+            //     }
 
-                // Unix timestamp 출력
-                printf("Current Unix time: %ld\n", unix_time);
+            //     // Unix timestamp 출력
+            //     printf("Current Unix time: %ld\n", unix_time);
 
-                // struct tm 포인터로 변환
-                struct tm *local_time = localtime(&unix_time);
-                if (local_time == NULL) {
-                    perror("localtime error");
-                    return 1;
-                }
+            //     // struct tm 포인터로 변환
+            //     struct tm *local_time = localtime(&unix_time);
+            //     if (local_time == NULL) {
+            //         perror("localtime error");
+            //         return 1;
+            //     }
 
-                // 문자열로 포맷팅
-                char buffer[100];
-                if (strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", local_time)) {
-                    printf("Local time: %s\n", buffer);
-                } else {
-                    printf("strftime error\n");
-                }
+            //     // 문자열로 포맷팅
+            //     char buffer[100];
+            //     if (strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", local_time)) {
+            //         printf("Local time: %s\n", buffer);
+            //     } else {
+            //         printf("strftime error\n");
+            //     }
 
-                uint8_t unixtimebuffer[8] = {0};
-                // big-endian으로 저장 (상위 바이트부터)
-                unixtimebuffer[0] = (unixtime >> 24) & 0xFF;  // MSB
-                unixtimebuffer[1] = (unixtime >> 16) & 0xFF;
-                unixtimebuffer[2] = (unixtime >> 8)  & 0xFF;
-                unixtimebuffer[3] = (unixtime)       & 0xFF;  // LSB
+            //     uint8_t unixtimebuffer[8] = {0};
+            //     // big-endian으로 저장 (상위 바이트부터)
+            //     unixtimebuffer[0] = (unixtime >> 24) & 0xFF;  // MSB
+            //     unixtimebuffer[1] = (unixtime >> 16) & 0xFF;
+            //     unixtimebuffer[2] = (unixtime >> 8)  & 0xFF;
+            //     unixtimebuffer[3] = (unixtime)       & 0xFF;  // LSB
 
-                send_rsvpic(s, unixtimebuffer);
-                receive_ack(s);
+            //     send_rsvpic(s, unixtimebuffer);
+            //     receive_ack(s);
 
-            }
-                break;
+            // }
+            //     break;
             case 9: //CMDLEDPWR
                 uint8_t onoff;
                 uint8_t cmd_led[8];
